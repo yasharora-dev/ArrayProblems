@@ -35,16 +35,19 @@ public:
     {
         vector<int> missingNums;
         
+        //subtract 1 from all to make it in range
         for(int i=0;i<nums.size();i++)
         {
             nums[i]-=1;
         }
         
+        //add N to every number's index
         for(int i=0;i<nums.size();i++)
         {
             nums[(nums[i]) % N] +=N;
         }
-        
+        //check which index has number still less than N, indicating they have been not encountered in the traversal
+        //return the index + 1 as that index (which num = index + 1) denotes the missing num
         for(int i=0;i<nums.size();i++)
         {
             if((nums[i]) < N)
